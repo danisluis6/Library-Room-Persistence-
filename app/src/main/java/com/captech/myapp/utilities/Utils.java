@@ -1,14 +1,17 @@
-package com.captech.roomdemo.utils;
+package com.captech.myapp.utilities;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.captech.roomdemo.R;
+import com.captech.myapp.R;
+import com.captech.myapp.userinterfaces.activities.BaseActivity;
 
 import java.io.ByteArrayOutputStream;
 
 /**
+ *
  * Created by lorence on 03/11/2017.
  */
 
@@ -28,4 +31,7 @@ public class Utils {
         return context.getResources().getIntArray(R.array.colors);
     }
 
+    public static String makeLogTag(Class<BaseActivity> activityClass) throws ActivityNotFoundException {
+        return activityClass.getSimpleName();
+    }
 }

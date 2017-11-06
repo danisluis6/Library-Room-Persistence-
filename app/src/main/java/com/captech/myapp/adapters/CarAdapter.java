@@ -1,4 +1,4 @@
-package com.captech.roomdemo.adapters;
+package com.captech.myapp.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.captech.roomdemo.R;
-import com.captech.roomdemo.localstorage.room.Entity.Car;
-import com.captech.roomdemo.utils.Constant;
-import com.captech.roomdemo.utils.Utils;
+import com.captech.myapp.R;
+import com.captech.myapp.localstorage.room.Entity.Video;
+import com.captech.myapp.utilities.Constant;
+import com.captech.myapp.utilities.Utils;
 
 import java.util.List;
 
@@ -22,11 +22,11 @@ import java.util.List;
  */
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
 
-    private List<Car> groupCars;
+    private List<Video> groupCars;
     private ICarAdapter callback;
     private Context mContext;
 
-    public CarAdapter(Context context, List<Car> groupCars, ICarAdapter iContactAdapter) {
+    public CarAdapter(Context context, List<Video> groupCars, ICarAdapter iContactAdapter) {
         this.groupCars = groupCars;
         this.callback = iContactAdapter;
         this.mContext = context;
@@ -40,8 +40,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        final Car contact = groupCars.get(position);
-        // holder.itemContact.setBackgroundColor(Utils.getArrayColors(mContext)[new Random().nextInt(Utils.getArrayColors(mContext).length-1)]);
+        final Video contact = groupCars.get(position);
         holder.firstname.setText(contact.getFirstName());
         holder.avatar.setImageBitmap(Utils.convertToBitmap(contact.getAvatar()));
         holder.delete.setImageResource(R.drawable.delete);

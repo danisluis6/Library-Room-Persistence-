@@ -1,11 +1,11 @@
-package com.captech.roomdemo.dao;
+package com.captech.myapp.dao;
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.captech.roomdemo.localstorage.room.AppDatabase;
+import com.captech.myapp.localstorage.room.AppDatabase;
 
 import org.junit.After;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package com.captech.roomdemo;
+package com.captech.myapp;
 
 import org.junit.Test;
 

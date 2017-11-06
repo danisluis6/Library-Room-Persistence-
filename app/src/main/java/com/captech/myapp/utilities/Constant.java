@@ -1,4 +1,4 @@
-package com.captech.roomdemo.utils;
+package com.captech.myapp.utilities;
 
 /**
  * Created by lorence on 03/11/2017.

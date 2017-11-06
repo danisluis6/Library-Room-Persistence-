@@ -1,4 +1,4 @@
-package com.captech.roomdemo;
+package com.captech.myapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
