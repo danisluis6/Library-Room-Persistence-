@@ -1,4 +1,4 @@
-package com.captech.roomdemo.activity;
+package com.captech.roomdemo.activities;
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
@@ -14,9 +14,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.captech.roomdemo.R;
-import com.captech.roomdemo.adapter.ContactAdapter;
-import com.captech.roomdemo.database.AppDatabase;
-import com.captech.roomdemo.domain.Contact;
+import com.captech.roomdemo.adapters.CarAdapter;
+import com.captech.roomdemo.localstorage.room.AppDatabase;
+import com.captech.roomdemo.localstorage.room.Entity.Car;
+import com.captech.roomdemo.localstorage.room.utils.EEConstract;
 import com.captech.roomdemo.utils.Utils;
 
 import java.util.ArrayList;
@@ -28,15 +29,15 @@ import java.util.Random;
  * Created by lorence on 03/11/2017.
  */
 
-public class RoomActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private ContactAdapter mContactAdapter;
+    private CarAdapter mContactAdapter;
     private AppDatabase mAppDatabase;
     private Context mContext;
 
-    private RecyclerView rcViewContact;
+    private RecyclerView rcViewCar;
     private FloatingActionButton actionButtonAdd;
-    private List<Contact> groupContacts;
+    private List<Car> groupContacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,21 +45,21 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_demo);
 
         // init View
-        rcViewContact = (RecyclerView)this.findViewById(R.id.recycler_view);
+        rcViewCar = (RecyclerView)this.findViewById(R.id.recycler_view);
         actionButtonAdd = (FloatingActionButton)this.findViewById(R.id.add);
 
         // init Attributes
         groupContacts = new ArrayList<>();
         mContext = this.getApplication();
-        mAppDatabase = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DB_NAME).build();
+        mAppDatabase = Room.databaseBuilder(this, AppDatabase.class, EEConstract.DB_NAME).build();
 
         // init Event
         actionButtonAdd.setOnClickListener(this);
 
         // View
-        mContactAdapter = new ContactAdapter(mContext, groupContacts, new ContactAdapter.IContactAdapter() {
+        mContactAdapter = new CarAdapter(mContext, groupContacts, new CarAdapter.ICarAdapter() {
             @Override
-            public void editContact(Contact contact) {
+            public void editContact(Car contact) {
                 // Fake data
                 final Bitmap fake = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.bitmap);
 
@@ -68,7 +69,7 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
                         Contact saveContact = params[0];
                         saveContact.setFirstName("Lorence NGUYEN");
                         saveContact.setAvatar(Utils.convertToByteArray(fake));
-                        return mAppDatabase.getContactDao().updateContacts(saveContact);
+                        return mAppDatabase.carDao().updateContacts(saveContact);
                     }
 
                     @Override
@@ -89,7 +90,7 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
                 new AsyncTask<Contact, Void, Integer>() {
                     @Override
                     protected Integer doInBackground(Contact... contacts) {
-                        return mAppDatabase.getContactDao().deleteContacts(contacts);
+                        return mAppDatabase.carDao().deleteContacts(contacts);
                     }
 
                     @Override
@@ -105,9 +106,9 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
                 }.execute(contact);
             }
         });
-        rcViewContact = (RecyclerView) findViewById(R.id.recycler_view);
-        rcViewContact.setLayoutManager(new LinearLayoutManager(this));
-        rcViewContact.setAdapter(mContactAdapter);
+        rcViewCar = (RecyclerView) findViewById(R.id.recycler_view);
+        rcViewCar.setLayoutManager(new LinearLayoutManager(this));
+        rcViewCar.setAdapter(mContactAdapter);
     }
 
     @Override
@@ -120,7 +121,7 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
         new AsyncTask<Void, Void, List<Contact>>() {
             @Override
             protected List<Contact> doInBackground(Void... params) {
-                return mAppDatabase.getContactDao().getContacts();
+                return mAppDatabase.carDao().getContacts();
             }
 
             @Override
@@ -159,7 +160,7 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
         new AsyncTask<Contact, Void, Long>() {
             @Override
             protected Long doInBackground(Contact... params) {
-                return mAppDatabase.getContactDao().insertContacts(params[0]);
+                return mAppDatabase.carDao().insertContacts(params[0]);
             }
 
             @Override

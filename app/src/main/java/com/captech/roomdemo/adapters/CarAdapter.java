@@ -1,9 +1,8 @@
-package com.captech.roomdemo.adapter;
+package com.captech.roomdemo.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,24 +11,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.captech.roomdemo.R;
-import com.captech.roomdemo.domain.Contact;
+import com.captech.roomdemo.localstorage.room.Entity.Car;
 import com.captech.roomdemo.utils.Constant;
 import com.captech.roomdemo.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author acampbell
  */
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
+public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
 
-    private List<Contact> grouContacts = new ArrayList<>();
-    private IContactAdapter callback;
+    private List<Car> groupCars;
+    private ICarAdapter callback;
     private Context mContext;
 
-    public ContactAdapter(Context context, List<Contact> grouContacts, IContactAdapter iContactAdapter) {
-        this.grouContacts = grouContacts;
+    public CarAdapter(Context context, List<Car> groupCars, ICarAdapter iContactAdapter) {
+        this.groupCars = groupCars;
         this.callback = iContactAdapter;
         this.mContext = context;
     }
@@ -42,7 +40,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        final Contact contact = grouContacts.get(position);
+        final Car contact = groupCars.get(position);
         // holder.itemContact.setBackgroundColor(Utils.getArrayColors(mContext)[new Random().nextInt(Utils.getArrayColors(mContext).length-1)]);
         holder.firstname.setText(contact.getFirstName());
         holder.avatar.setImageBitmap(Utils.convertToBitmap(contact.getAvatar()));
@@ -76,11 +74,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return grouContacts.size();
+        return groupCars.size();
     }
 
     public void updateListOfContact(List<Contact> grouContacts) {
-        this.grouContacts = grouContacts;
+        this.groupCars = grouContacts;
         notifyDataSetChanged();
     }
 
@@ -99,7 +97,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         }
     }
 
-    public interface IContactAdapter {
+    public interface ICarAdapter {
         void editContact(Contact contact);
         void deleteContact(Contact contact);
     }
