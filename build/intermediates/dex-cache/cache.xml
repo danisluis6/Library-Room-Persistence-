@@ -19,5 +19,23 @@
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/lorence/Desktop/android-room-demo-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_8d7810639eb0e321224e60fd53748ccd09018ab3/classes.dex" />
     </item>
+    <item
+        is-multidex="true"
+        jar="/home/lorence/Desktop/Library-Room-Persistence-/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="367ab7ca8061c9c8115df4ac781115e235d9bcb6">
+        <dex dex="/home/lorence/Desktop/Library-Room-Persistence-/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_5bcbc935ccc9b3b8a500a140205a530ab7b32de2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/lorence/Desktop/Library-Room-Persistence-/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/lorence/Desktop/Library-Room-Persistence-/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_88c9b676d9c34c51d93bffd394386686bd8e64a3/classes.dex" />
+    </item>
 
 </items>
