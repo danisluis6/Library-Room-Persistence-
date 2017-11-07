@@ -1,3 +1,4 @@
+/*
 package com.captech.myapp.adapters;
 
 import android.content.Context;
@@ -17,9 +18,11 @@ import com.captech.myapp.utilities.Utils;
 
 import java.util.List;
 
+*/
 /**
  * @author acampbell
- */
+ *//*
+
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
 
     private List<Video> groupCars;
@@ -101,3 +104,4 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
         void deleteContact(Contact contact);
     }
 }
+*/

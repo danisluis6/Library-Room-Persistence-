@@ -7,4 +7,17 @@ package com.captech.myapp.utilities;
 public class Constant {
 
     public static final String EMPTY_STRING = "";
+
+    /* Toolbar Information */
+    public static class ToolbarLayoutInfo {
+        public static String _TITLE = "Home";
+        public static String _BACKGROUND_COLOR = "#FAFBBA";
+        public static String _TITLE_TEXT_COLOR = "#FFFFFF";
+    }
+
+
+    /* Check permission */
+    public static class Permissions {
+        public static final int INTERNET = 0;
+    }
 }

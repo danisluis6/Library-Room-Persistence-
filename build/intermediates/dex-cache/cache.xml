@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/lorence/Desktop/android-room-demo-master/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/lorence/.gradle/wrapper/dists/gradle-2.14.1-all/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.8.1/bc373fb6bc7bca3035041b924f158fd2b946ee8d/butterknife-annotations-8.8.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="4334472900544b0d2d94d731fe1a026e27504862">
-        <dex dex="/home/lorence/Desktop/android-room-demo-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_0a30f9ca383fb88b6b7c99efdafaccbfb3b91eb9/classes.dex" />
+        sha1="bc373fb6bc7bca3035041b924f158fd2b946ee8d">
+        <dex dex="/home/lorence/Desktop/Library-Room-Persistence-/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.8.1_e407de79331acc8720a3ba5b8032c15c70f0e60f/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/lorence/Desktop/android-room-demo-master/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/lorence/.android/build-cache/7e3b0f20d64f59a501e6a4493748decbcfad4e62/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/lorence/Desktop/android-room-demo-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_8d7810639eb0e321224e60fd53748ccd09018ab3/classes.dex" />
+        sha1="6a2bcb61342d09fe9acf55c9daf63961c8866cc0">
+        <dex dex="/home/lorence/Desktop/Library-Room-Persistence-/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c8732d5516fda7bb8a341e33ad53aa0495d3ae00/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -25,8 +25,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="367ab7ca8061c9c8115df4ac781115e235d9bcb6">
+        sha1="aee404a4fca3e5141125d04f5f578a415769bdb1">
         <dex dex="/home/lorence/Desktop/Library-Room-Persistence-/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_5bcbc935ccc9b3b8a500a140205a530ab7b32de2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/lorence/Desktop/Library-Room-Persistence-/app/libs/YouTubeAndroidPlayerApi.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="/home/lorence/Desktop/Library-Room-Persistence-/app/build/intermediates/transforms/dex/debug/folders/1000/2/YouTubeAndroidPlayerApi_a26325bbb5dee2d798511dcd737edd0ec7f7ebaf/classes.dex" />
     </item>
     <item
         is-multidex="true"
