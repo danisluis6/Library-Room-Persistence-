@@ -18,6 +18,6 @@ public class Constant {
 
     /* Check permission */
     public static class Permissions {
-        public static final int INTERNET = 0;
+        public static final int ACCESS_INTERNET = 0;
     }
 }

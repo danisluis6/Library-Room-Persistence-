@@ -24,6 +24,9 @@ import butterknife.BindView;
  * Created by lorence on 03/11/2017.
  * @Run: https://stackoverflow.com/questions/2888508/how-to-change-the-font-on-the-textview
  * => Font
+ *
+ * @Run: https://developer.android.com/training/implementing-navigation/lateral.html
+ *
  */
 
 public class HomeView extends BaseView implements View.OnClickListener{
@@ -47,12 +50,14 @@ public class HomeView extends BaseView implements View.OnClickListener{
         initViews();
         initAttributes();
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
-            startActivity(new Intent(HomeView.this, VideoView.class));
-        } else {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_WIFI_STATE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.INTERNET},
-                    Constant.Permissions.INTERNET);
+                    new String[]{Manifest.permission.INTERNET, Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_WIFI_STATE},
+                    Constant.Permissions.ACCESS_INTERNET);
+        } else {
+            // startActivity(new Intent(HomeView.this, VideoView.class));
         }
     }
 
@@ -60,23 +65,28 @@ public class HomeView extends BaseView implements View.OnClickListener{
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case Constant.Permissions.INTERNET: {
+            case Constant.Permissions.ACCESS_INTERNET: {
                 // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    startActivity(new Intent(HomeView.this, VideoView.class));
-                } else {
-                    Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
+                if (grantResults.length > 0) {
+                    for (int permissionId : grantResults) {
+                        if (permissionId != PackageManager.PERMISSION_GRANTED) {
+                            Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
                 }
+                startActivity(new Intent(HomeView.this, VideoView.class));
             }
         }
     }
 
     private void initViews() {
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initAttributes() {
-        mToolbarLayout.getToolbar().setBackgroundColor(Color.parseColor("#FF9800"));
+        mToolbarLayout.getToolbar().setBackgroundColor(ContextCompat.getColor(this, R.color.action_bar_color));
         mToolbarLayout.getToolbar().setTitle("Home");
         mToolbarLayout.getTextViewTitle(mToolbarLayout.getToolbar()).setTypeface(getTypeFace(FONT_ROBOTO_MODE.MEDIUM));
     }

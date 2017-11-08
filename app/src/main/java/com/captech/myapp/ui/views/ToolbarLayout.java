@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,7 @@ import butterknife.ButterKnife;
  * @Run: https://stackoverflow.com/questions/15444375/how-to-create-interface-between-fragment-and-adapter
  */
 
-public class ToolbarLayout extends LinearLayout{
+public class ToolbarLayout extends ConstraintLayout{
 
     @BindView(R.id.toolbar)
     public Toolbar mToolbar;
@@ -50,6 +51,7 @@ public class ToolbarLayout extends LinearLayout{
         mToolbar.setTitle(Constant.ToolbarLayoutInfo._TITLE);
         mToolbar.setTitleTextColor(Color.parseColor(Constant.ToolbarLayoutInfo._TITLE_TEXT_COLOR));
         mToolbar.setBackgroundColor(Color.parseColor(Constant.ToolbarLayoutInfo._BACKGROUND_COLOR));
+        // mToolbar.setNavigationIcon(R.drawable.delete);
 
         /**
          * @Run: https://stackoverflow.com/questions/23538929/android-menuitem-custom-layout
@@ -80,8 +82,7 @@ public class ToolbarLayout extends LinearLayout{
             Class<?> toolbarClass = Toolbar.class;
             Field titleTextViewField = toolbarClass.getDeclaredField("mTitleTextView");
             titleTextViewField.setAccessible(true);
-            TextView titleTextView = (TextView) titleTextViewField.get(toolbar);
-            return titleTextView;
+            return (TextView) titleTextViewField.get(toolbar);
         }
         catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();

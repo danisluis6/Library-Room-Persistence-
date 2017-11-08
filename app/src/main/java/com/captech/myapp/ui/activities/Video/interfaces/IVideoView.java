@@ -7,6 +7,4 @@ package com.captech.myapp.ui.activities.Video.interfaces;
 public interface IVideoView {
 
     public int getLayoutResId();
-
-    public void activityCreated();
 }

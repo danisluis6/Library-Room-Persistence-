@@ -9,7 +9,7 @@
     <!-- Home Theme -->
     <style name="HomeTheme" parent="AppTheme">
         <!-- Customize home theme here. -->
-        <item name="colorPrimaryDark">#F57C00</item>
+        <item name="colorPrimaryDark">#D32F2F</item>
         <item name="android:windowFullscreen">false</item>
     </style>
     

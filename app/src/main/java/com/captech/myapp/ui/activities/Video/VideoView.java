@@ -33,8 +33,6 @@ public class VideoView extends YouTubeBaseActivity implements YouTubePlayer.OnIn
 
     private static String API_KEY = "AIzaSyAs4UrkQKzjY2XMyTUVBEobdZSU-7BfN9s";
     private static String VIDEO_ID = "bM7SZ5SBzyY";
-    private YouTubePlayer.PlaybackEventListener playbackEventListener;
-    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener;
     private Unbinder mUnbinder;
 
     @Override
@@ -43,16 +41,10 @@ public class VideoView extends YouTubeBaseActivity implements YouTubePlayer.OnIn
     }
 
     @Override
-    public void activityCreated() {
-        initAttributes();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
         mUnbinder = ButterKnife.bind(this);
-        initAttributes();
         /** Initializing YouTube Player View **/
         mPlayerView.initialize(API_KEY, this);
     }
@@ -65,73 +57,64 @@ public class VideoView extends YouTubeBaseActivity implements YouTubePlayer.OnIn
         super.onDestroy();
     }
 
-    private void initAttributes() {
-        initStatusPlayVideo();
-        updateStatusPlayVideo();
-    }
+    private YouTubePlayer.PlaybackEventListener playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
+        @Override
+        public void onPlaying() {
 
-    private void initStatusPlayVideo() {
-        playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
-            @Override
-            public void onPlaying() {
+        }
 
-            }
+        @Override
+        public void onPaused() {
 
-            @Override
-            public void onPaused() {
+        }
 
-            }
+        @Override
+        public void onStopped() {
 
-            @Override
-            public void onStopped() {
+        }
 
-            }
+        @Override
+        public void onBuffering(boolean b) {
 
-            @Override
-            public void onBuffering(boolean b) {
+        }
 
-            }
+        @Override
+        public void onSeekTo(int i) {
 
-            @Override
-            public void onSeekTo(int i) {
+        }
+    };
 
-            }
-        };
-    }
+    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
+        @Override
+        public void onLoading() {
 
-    private void updateStatusPlayVideo() {
-        playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
-            @Override
-            public void onLoading() {
+        }
 
-            }
+        @Override
+        public void onLoaded(String s) {
 
-            @Override
-            public void onLoaded(String s) {
+        }
 
-            }
+        @Override
+        public void onAdStarted() {
 
-            @Override
-            public void onAdStarted() {
+        }
 
-            }
+        @Override
+        public void onVideoStarted() {
 
-            @Override
-            public void onVideoStarted() {
+        }
 
-            }
+        @Override
+        public void onVideoEnded() {
 
-            @Override
-            public void onVideoEnded() {
+        }
 
-            }
+        @Override
+        public void onError(YouTubePlayer.ErrorReason errorReason) {
 
-            @Override
-            public void onError(YouTubePlayer.ErrorReason errorReason) {
-
-            }
-        };
-    }
+        }
+    };
 
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
